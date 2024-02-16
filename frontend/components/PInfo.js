@@ -1,15 +1,31 @@
 import React from "react";
 import Figure from "./Photo";
+import styled from "styled-components";
 
-export default function Card({ title, text, imageURL, date }) {
+const StyledCard = styled.div`
+  border: 5px solid darkslateblue;
+  border-radius: 12px;
+  padding: 2rem;
+
+  h2 {
+    font-size: 50px;
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-bottom: 2rem;
+  }
+`
+
+export default function Card({ title, text, imageURL, author, date }) {
     return (
-      <div className='card'>
-        <h2>{title}</h2>
-        <p>{text}</p>
+      <StyledCard className='card'>
+        <h2 id="CardTitle">{title}</h2>
+        <p id="AuthNotes">{text}</p>
         <Figure
         imageURL={imageURL}
-        caption={date}
+        date={date}
+        author={author}
         />
-      </div>
+      </StyledCard>
     )
   }

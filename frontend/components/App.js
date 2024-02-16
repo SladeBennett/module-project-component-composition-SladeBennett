@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import Card from './PInfo'
+import styled from 'styled-components'
 
 const dataURL = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY'
+
+
+
+
 
 function App() {
   const [apod, setApod] = useState()
@@ -29,12 +34,15 @@ function App() {
   }, [])
 
   if (!apod) return 'Fetching Astronological Data...'
+
+
   return (
-    <section>
+    <section className='TheParent'>
       <Card
         title={apod.title}
         text={apod.explanation}
         imageURL={apod.url}
+        author={apod.copyright}
         date={apod.date}
       />
     </section>
